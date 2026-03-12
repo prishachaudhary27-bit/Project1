@@ -1,0 +1,94 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-image: url(https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAyL3Jhd3BpeGVsX29mZmljZV8yN19zaW1wbGVfbWluaW1hbGlzdF9jbG9zZV91cF9vZl9wbGFudF9pbl9ibGFja185YzE1ODlmYy1mZTNlLTRmMjQtOTZlMC0wOTI4YmI5MzhkNmNfMS5qcGc.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;       
+    background-position: center;  
+    background-attachment: fixed;
+    color: white;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 100px; 
+    background-color: rgb(72, 72, 72);
+    align-items: center;
+}
+
+nav .logo{
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+nav #logout-button{
+    margin-right: 20px;
+    width: 4.5rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    transition: transform 0.3 ease;
+}
+
+nav #logout-button:hover{
+    transform: scale(1.1);
+}
+
+.new-task{
+    height: 350px;
+    width: 250px;
+    background-color: rgba(219, 255, 255, 0.2); 
+    
+    /* for little transpaenecy */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#new-task-title{
+    background-color: rgb(52, 52, 251);
+    
+}
+.bottom-buttons{
+    margin: 10px;
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+}
+
+.task-heading{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.task-description{
+    margin-top: 10px;
+}
+
+.main-body{
+    display: flex;
+    align-items: center;   /* vertical center */
+    justify-content: flex-start; /* align left */
+    height: calc(100vh - 100px);  
+    padding-left: 50px;  
+}
+
+.bottom-btn{
+    margin-right: 20px;
+    width: 3.5rem;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 10%;
+    transition: transform 0.3 ease;
+    background-color: rgb(52, 52, 251);
+    color: white;
+}
+
+.bottom-btn:hover{
+    transform: scale(1.05);
+}
