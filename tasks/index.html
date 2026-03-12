@@ -16,20 +16,22 @@
 
     <div class="main-body">
         <div class="new-task">
-            <h3>New Task</h3>
+            <span id="new-task-title">
+                <h3>New Task</h3>
+            </span>
             <br>
             <div class="task-heading">
-                <input type="text" placeholder="Heading">
+                <textarea rows="2" placeholder="Heading"></textarea>
             </div>
 
             <hr/>
             <div class="task-description">
-            <input type="text" class="description"  placeholder="Enter the Description.">
+            <textarea name="description" id="description" rows="12" cols="22" placeholder="Enter the Description."></textarea>
             </div>
             <br>
             <div class="bottom-buttons">
-                <button>Cancel</button>
-                <button>Create</button>
+                <button class="bottom-btn">Cancel</button>
+                <button class="bottom-btn">Create</button>
             </div>
         </div>
     </div>
