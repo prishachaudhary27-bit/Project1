@@ -1,0 +1,59 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 100px; 
+    background-color: rgb(72, 72, 72);
+    align-items: center;
+}
+
+nav .logo{
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+nav #logout-button{
+    margin-right: 20px;
+    width: 4.5rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    transition: transform 0.3 ease;
+}
+
+nav #logout-button:hover{
+    transform: scale(1.1);
+}
+
+.new-task{
+    height: 350px;
+    width: 250px;
+    background-color: rgba(219, 255, 255, 0.1); 
+    /* for little transpaenecy */
+    text-align: center;
+}
+
+.bottom-buttons{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-heading{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.task-description{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
