@@ -58,22 +58,25 @@ headingInput.addEventListener('keydown', function (event) {
     addTask();
   }
 });
+function showPopup({
+    message = "Hello!",
+    timeout = 5,
+    buttonText = "Close"
+}) {
 
-// Show welcome popup after login/signup
-function showWelcomePopup(userName) {
-    const popup = document.getElementById("welcome-popup");
-    const message = document.getElementById("welcome-message");
-    const countdownEl = document.getElementById("countdown");
-    const closeBtn = document.getElementById("close-popup");
+    const popup = document.querySelector(".popup");
+    const messageEl = popup.querySelector(".popup-message");
+    const countdownEl = popup.querySelector(".countdown");
+    const closeBtn = popup.querySelector(".close-popup");
 
-    let countdown = 5;
+    let countdown = timeout;
 
-    message.textContent = `Welcome, ${userName}!`;
+    messageEl.textContent = message;
+    closeBtn.textContent = buttonText;
     countdownEl.textContent = `Closing in ${countdown} seconds...`;
 
     popup.style.display = "flex";
 
-    // Countdown logic
     let timer = setInterval(() => {
         countdown--;
         countdownEl.textContent = `Closing in ${countdown} seconds...`;
@@ -84,20 +87,27 @@ function showWelcomePopup(userName) {
         }
     }, 1000);
 
-    // Manual close
-    closeBtn.addEventListener("click", () => {
+    closeBtn.onclick = () => {
         clearInterval(timer);
         popup.style.display = "none";
-    });
+    };
 }
 
-// Trigger popup after login/signup
 document.addEventListener("DOMContentLoaded", function () {
-    let currentUser = localStorage.getItem("currentUser");
-    if (currentUser) {
-        let user = JSON.parse(currentUser);
-        showWelcomePopup(user.name);
-        localStorage.removeItem("currentUser"); // clear after showing
-    }
-});
 
+    let currentUser = localStorage.getItem("currentUser");
+
+    if (currentUser) {
+
+        let user = JSON.parse(currentUser);
+
+        showPopup({
+            message: `Welcome, ${user.name}!`,
+            timeout: 5,
+            buttonText: "Close"
+        });
+
+        localStorage.removeItem("currentUser");
+    }
+
+});
