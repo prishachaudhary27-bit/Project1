@@ -1,3 +1,4 @@
+
 const headingInput = document.querySelector('.task-heading textarea');
 const descriptionInput = document.getElementById('description');
 const createButton = document.querySelector('.bottom-btn:nth-of-type(2)');
@@ -57,3 +58,46 @@ headingInput.addEventListener('keydown', function (event) {
     addTask();
   }
 });
+
+// Show welcome popup after login/signup
+function showWelcomePopup(userName) {
+    const popup = document.getElementById("welcome-popup");
+    const message = document.getElementById("welcome-message");
+    const countdownEl = document.getElementById("countdown");
+    const closeBtn = document.getElementById("close-popup");
+
+    let countdown = 5;
+
+    message.textContent = `Welcome, ${userName}!`;
+    countdownEl.textContent = `Closing in ${countdown} seconds...`;
+
+    popup.style.display = "flex";
+
+    // Countdown logic
+    let timer = setInterval(() => {
+        countdown--;
+        countdownEl.textContent = `Closing in ${countdown} seconds...`;
+
+        if (countdown <= 0) {
+            clearInterval(timer);
+            popup.style.display = "none";
+        }
+    }, 1000);
+
+    // Manual close
+    closeBtn.addEventListener("click", () => {
+        clearInterval(timer);
+        popup.style.display = "none";
+    });
+}
+
+// Trigger popup after login/signup
+document.addEventListener("DOMContentLoaded", function () {
+    let currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+        let user = JSON.parse(currentUser);
+        showWelcomePopup(user.name);
+        localStorage.removeItem("currentUser"); // clear after showing
+    }
+});
+
