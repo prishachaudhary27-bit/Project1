@@ -1,3 +1,4 @@
+
 const headingInput = document.querySelector('.task-heading textarea');
 const descriptionInput = document.getElementById('description');
 const createButton = document.querySelector('.bottom-btn:nth-of-type(2)');
@@ -56,4 +57,57 @@ headingInput.addEventListener('keydown', function (event) {
     event.preventDefault();
     addTask();
   }
+});
+function showPopup({
+    message = "Hello!",
+    timeout = 5,
+    buttonText = "Close"
+}) {
+
+    const popup = document.querySelector(".popup");
+    const messageEl = popup.querySelector(".popup-message");
+    const countdownEl = popup.querySelector(".countdown");
+    const closeBtn = popup.querySelector(".close-popup");
+
+    let countdown = timeout;
+
+    messageEl.textContent = message;
+    closeBtn.textContent = buttonText;
+    countdownEl.textContent = `Closing in ${countdown} seconds...`;
+
+    popup.style.display = "flex";
+
+    let timer = setInterval(() => {
+        countdown--;
+        countdownEl.textContent = `Closing in ${countdown} seconds...`;
+
+        if (countdown <= 0) {
+            clearInterval(timer);
+            popup.style.display = "none";
+        }
+    }, 1000);
+
+    closeBtn.onclick = () => {
+        clearInterval(timer);
+        popup.style.display = "none";
+    };
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    let currentUser = localStorage.getItem("currentUser");
+
+    if (currentUser) {
+
+        let user = JSON.parse(currentUser);
+
+        showPopup({
+            message: `Welcome, ${user.name}!`,
+            timeout: 5,
+            buttonText: "Close"
+        });
+
+        localStorage.removeItem("currentUser");
+    }
+
 });
