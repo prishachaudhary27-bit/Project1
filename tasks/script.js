@@ -1,4 +1,3 @@
-
 const headingInput = document.querySelector('.task-heading textarea');
 const descriptionInput = document.getElementById('description');
 const createButton = document.querySelector('.bottom-btn:nth-of-type(2)');
@@ -9,6 +8,11 @@ const detailBox = document.getElementById('task-details');
 const closeButton = document.getElementById('close-details');
 const detailHeading = document.getElementById('detail-heading');
 const detailDescription = document.getElementById('detail-description');
+
+const completeButton = document.getElementById('complete-task');
+const closeTaskButton = document.getElementById('close-task');
+
+let currentTask = null;
 
 function addTask() {
   const heading = headingInput.value.trim();
@@ -23,6 +27,8 @@ function addTask() {
   li.dataset.description = description;
 
   li.addEventListener('click', function () {
+
+    currentTask = this;
 
     detailBox.style.display = "block";
 
@@ -52,12 +58,36 @@ closeButton.addEventListener('click', function () {
   detailBox.style.display = "none";
 });
 
+
+/* COMPLETE BUTTON */
+
+completeButton.addEventListener('click', function () {
+
+  if (currentTask) {
+    currentTask.style.textDecoration = "line-through";
+    currentTask.style.color = "lightgray";
+  }
+
+  detailBox.style.display = "none";
+
+});
+
+
+/* CLOSE BUTTON */
+
+closeTaskButton.addEventListener('click', function () {
+  detailBox.style.display = "none";
+});
+
+
 headingInput.addEventListener('keydown', function (event) {
   if (event.key === 'Enter' && !event.shiftKey) {
     event.preventDefault();
     addTask();
   }
 });
+
+
 function showPopup({
     message = "Hello!",
     timeout = 5,
