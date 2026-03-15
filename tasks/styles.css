@@ -31,7 +31,7 @@ nav #logout-button{
     height: 2rem;
     font-size: 1rem;
     border-radius: 1rem;
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
 }
 
 nav #logout-button:hover{
@@ -42,14 +42,11 @@ nav #logout-button:hover{
     height: 350px;
     width: 250px;
     background-color: rgba(219, 255, 255, 0.2); 
-    
-    /* for little transpaenecy */
     text-align: center;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-
 
 .Todo-list{
     height: 350px;
@@ -61,11 +58,10 @@ nav #logout-button:hover{
     padding: 10px;
 }
 
-
 #todo-list{
     list-style-type: none;
     display: flex;
-    flex-direction: column;   /* change from row → column */
+    flex-direction: column;
     padding: 0;
     margin-top: 10px;
     flex-grow: 1;
@@ -77,11 +73,14 @@ nav #logout-button:hover{
     margin: 5px 0;
     padding: 8px;
     border-radius: 5px;
+    cursor: pointer;
 }
+
 .new-task,
 .Todo-list{
     min-width: 250px;
 }
+
 #new-task-title{
     background-color: rgb(52, 52, 251);
 }
@@ -89,6 +88,7 @@ nav #logout-button:hover{
 #todo-list-title{
     background-color: rgb(52, 52, 251);
 }
+
 .bottom-buttons{
     margin: 10px;
     display: flex;
@@ -104,6 +104,7 @@ nav #logout-button:hover{
 .task-description{
     margin-top: 10px;
 }
+
 .task-details{
     display: none;
     width: 250px;
@@ -129,12 +130,10 @@ nav #logout-button:hover{
 .main-body{
     display: flex;
     align-items: center; 
-    justify-content: flex-start;  /* start from left */
-    gap: 30px;                    /* space between the boxes */
-    padding-left: 50px;           /* space from left border */
+    justify-content: flex-start;
+    gap: 30px;
+    padding-left: 50px;
     height: calc(100vh - 100px);
-    
-
 }
 
 .bottom-btn{
@@ -143,7 +142,7 @@ nav #logout-button:hover{
     height: 1.5rem;
     font-size: 0.9rem;
     border-radius: 10%;
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
     background-color: rgb(52, 52, 251);
     color: white;
 }
@@ -152,9 +151,52 @@ nav #logout-button:hover{
     transform: scale(1.05);
 }
 
-/* Popup background */
+/* ---------- NEW TASK DETAIL BUTTONS ---------- */
+
+.task-actions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#complete-task{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#complete-task:hover{
+    background-color: darkgreen;
+}
+
+#close-task{
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#close-task:hover{
+    background-color: darkgray;
+}
+
+/* Completed task style */
+
+.completed{
+    text-decoration: line-through;
+    color: lightgray;
+}
+
+
+/* ---------- POPUP ---------- */
+
 .popup {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -170,7 +212,6 @@ nav #logout-button:hover{
   z-index: 9999;
 }
 
-/* Popup box */
 .popup .popup-content {
   background: white;
   color: black;
